@@ -1,0 +1,9 @@
+div
+    div
+        input(ng-model="$ctrl.searchTerm" placeholder="Person's name")
+        button(ng-click="$ctrl.getPeople()") Search for People
+    div
+        div(ng-if="$ctrl.starWarsPeople.length === 0") NO PEOPLE
+        div(ng-repeat="person in $ctrl.starWarsPeople")
+            spongebob-case(text="person")
+            

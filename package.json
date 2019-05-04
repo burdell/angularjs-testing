@@ -1,0 +1,35 @@
+{
+  "name": "angular-react-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^11.13.9",
+    "@uirouter/angularjs": "^1.0.22",
+    "angular": "^1.7.8",
+    "jade": "^1.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.54",
+    "@types/jest": "^24.0.12",
+    "@types/react": "^16.8.10",
+    "@types/react-dom": "^16.8.3",
+    "babel-jest": "^24.7.1",
+    "dom-testing-library": "^4.0.1",
+    "jest": "^24.7.1",
+    "jest-dom": "^3.1.4",
+    "parcel-bundler": "^1.12.3",
+    "pug": "^2.0.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.1"
+  }
+}
