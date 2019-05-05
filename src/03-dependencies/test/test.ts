@@ -1,10 +1,10 @@
 import { render, fireEvent, wait } from "./renderer";
-
+";
 import { RenderWithDependencies } from "../component";
 import { IModule } from "angular";
 import { spongebobCase } from "../Spongebob";
 
-describe("Basic test", () => {
+describe("Dependencies test", () => {
   it("renders with dependencies", async () => {
     const { getByPlaceholderText, getByText, returnedInjections } = render({
       component: RenderWithDependencies,

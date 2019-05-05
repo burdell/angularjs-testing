@@ -1,0 +1,11 @@
+div
+    div
+        label(for="first-name") First Name
+        input(id="first-name" ng-model="$ctrl.firstName")
+    div
+        label(for="last-name") Last Name
+        input(id="last-name" ng-model="$ctrl.lastName")
+    div
+        spongebob-case(text="$ctrl.getFullName()")
+    div
+        button(ng-click="$ctrl.submit()") Submit

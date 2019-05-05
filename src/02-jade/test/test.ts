@@ -2,7 +2,7 @@ import { render, fireEvent } from "./renderer";
 
 import { RenderJade } from "../component";
 
-describe("Basic test", () => {
+describe("Jade rendering test", () => {
   it("says who it is", () => {
     const { getByPlaceholderText, getByText } = render({
       component: RenderJade
@@ -11,7 +11,7 @@ describe("Basic test", () => {
     getByText("I'm a JadeBoi");
 
     const input = getByPlaceholderText("WHAT AM I??");
-    fireEvent.change(input, { target: { value: "TestBoi" } });
+    fireEvent.change(input, { target: { value: "Test" } });
 
     getByText("I'm a TestBoi");
   });
