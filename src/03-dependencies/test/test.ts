@@ -1,5 +1,5 @@
 import { render, fireEvent, wait } from "./renderer";
-";
+
 import { RenderWithDependencies } from "../component";
 import { IModule } from "angular";
 import { spongebobCase } from "../Spongebob";

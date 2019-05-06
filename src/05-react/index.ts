@@ -7,7 +7,7 @@ import { spongebobCase } from "../03-dependencies/Spongebob";
 import { ReactComponent } from "./react-component";
 import { ReactBridge } from "../react/bridge";
 
-export const reactTemplate = `<react-component />`;
+export const reactTemplate = `<div><react-component /></div>`;
 
 export const template = `
 <div>

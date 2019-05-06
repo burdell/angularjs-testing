@@ -8,16 +8,16 @@ describe("Props test", () => {
   it("renders with props", () => {
     const submitdFn = jest.fn();
     const { getByText } = render({
-      //   template: `
-      //       <render-with-props
-      //           first-name='$ctrl.firstName'
-      //           last-name='$ctrl.lastName'
-      //           on-submit='$ctrl.onSubmit'
-      //       />
-      //     `,
-      //   modules: [renderWithPropsModule],
-      component: RenderWithProps,
-      modules: [spongebobCase],
+      template: `
+            <render-with-props
+                first-name='$ctrl.firstName'
+                last-name='$ctrl.lastName'
+                on-submit='$ctrl.onSubmit'
+            />
+          `,
+      modules: [renderWithPropsModule],
+      // component: RenderWithProps,
+      // modules: [spongebobCase],
       props: {
         firstName: "Tom",
         lastName: "Joad",

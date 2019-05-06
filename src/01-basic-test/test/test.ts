@@ -7,7 +7,7 @@ describe("Basic test", () => {
   it("bumps & dumps", () => {
     // const { getByText } = render({ component: BasicTest });
     const { getByText } = render({
-      template: "<basic-test></basic-test>",
+      template: "<basic-test />",
       modules: [basicTestModule]
     });
 

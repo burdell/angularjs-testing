@@ -1,11 +1,12 @@
 import { render, fireEvent } from "./renderer";
 
-import { RenderJade } from "../component";
+import { renderingJadeModule } from "../index";
 
 describe("Jade rendering test", () => {
   it("says who it is", () => {
     const { getByPlaceholderText, getByText } = render({
-      component: RenderJade
+      template: "<render-jade />",
+      modules: [renderingJadeModule]
     });
 
     getByText("I'm a JadeBoi");
