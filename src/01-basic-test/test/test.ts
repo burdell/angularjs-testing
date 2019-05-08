@@ -5,11 +5,11 @@ import { basicTestModule } from "../index";
 
 describe("Basic test", () => {
   it("bumps & dumps", () => {
-    // const { getByText } = render({ component: BasicTest });
-    const { getByText } = render({
-      template: "<basic-test />",
-      modules: [basicTestModule]
-    });
+    // const { getByText } = render({
+    //   template: "<basic-test />",
+    //   modules: [basicTestModule]
+    // });
+    const { getByText } = render({ component: BasicTest });
 
     const bumpButton = getByText("BUMP");
     const dumpButton = getByText("DUMP");

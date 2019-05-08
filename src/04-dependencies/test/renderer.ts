@@ -9,16 +9,12 @@ interface RenderProps {
   component?: IComponentOptions;
   template?: string;
   modules?: string[];
-  returnedInjections?: string[];
   props?: { [attr: string]: any };
+  returnedInjections?: string[];
   registerDependencies?(module: IModule): void;
 }
 
-function initAngular(
-  props: any,
-  component?: IComponentOptions,
-  template?: string
-) {
+function initAngular({ component, template, props }: RenderProps) {
   const testModule = angular.module("ghTest", []);
   const testComponentName = "ghTestComponent";
 
@@ -29,6 +25,8 @@ function initAngular(
   testModule.component("ghTestContainer", {
     controller: class GatherTestContainer {
       public $onInit() {
+        if (!props) return;
+
         const propKeys = Object.keys(props);
         propKeys.forEach(prop => {
           (this as any)[prop] = props[prop];
@@ -42,14 +40,12 @@ function initAngular(
 }
 
 export function render({
-  component,
-  template,
   registerDependencies,
   returnedInjections = [],
-  props = {},
-  modules = []
+  modules = [],
+  ...theRest
 }: RenderProps) {
-  const testModule = initAngular(props, component, template);
+  const testModule = initAngular(theRest);
   if (registerDependencies) {
     registerDependencies(testModule);
   }

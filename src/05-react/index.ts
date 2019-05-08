@@ -2,17 +2,16 @@ import angular, { IScope } from "angular";
 import uiRouter, { StateProvider } from "@uirouter/angularjs";
 
 import { NgComponent } from "./component";
-import { spongebobCase } from "../03-dependencies/Spongebob";
 
 import { ReactComponent } from "./react-component";
-import { ReactBridge } from "../react/bridge";
+import { ReactBridge } from "./bridge";
 
-export const reactTemplate = `<div><react-component /></div>`;
+export const reactTemplate = `<react-component />`;
 
-export const template = `
+export const angularTemplate = `
 <div>
     <div>
-        <render-with-props
+        <angular-component
             first-name="$ctrl.firstName"
             last-name="$ctrl.lastName"
             on-submit="$ctrl.setSubmittedName"
@@ -42,14 +41,15 @@ export class NgController {
 
 export const stateOptions = {
   name: "render-with-react",
-  template: reactTemplate,
   controller: NgController,
+  // template: angularTemplate,
+  template: reactTemplate,
   controllerAs: "$ctrl",
   url: "/renderWithReact"
 };
 
 export const reactModule = angular
-  .module("renderWithReact", [uiRouter, spongebobCase])
+  .module("renderWithReact", [uiRouter])
   .directive("reactComponent", ReactBridge(ReactComponent))
   .component("angularComponent", NgComponent)
   .config(($stateProvider: StateProvider) => {

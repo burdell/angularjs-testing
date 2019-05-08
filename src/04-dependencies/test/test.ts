@@ -1,21 +1,25 @@
 import { render, fireEvent, wait } from "./renderer";
 
-import { RenderWithDependencies } from "../component";
+import { renderWithDependenciesModule } from "../index";
 import { IModule } from "angular";
-import { spongebobCase } from "../Spongebob";
+import * as SpongebobModule from "../Spongebob";
+import * as StarWarsModule from "../StarWars";
+
+// jest.mock("../StarWars/service");
 
 describe("Dependencies test", () => {
   it("renders with dependencies", async () => {
     const { getByPlaceholderText, getByText, returnedInjections } = render({
-      component: RenderWithDependencies,
-      registerDependencies,
-      modules: [spongebobCase],
+      template: "<render-with-dependencies />",
+      modules: [renderWithDependenciesModule],
+      registerDependencies: registerDependencies,
       returnedInjections: ["StarWarsService"]
     });
 
+    getByText("NO PEOPLE");
+
     const input = getByPlaceholderText("Person's name");
     const button = getByText("Search for People");
-
     fireEvent.change(input, { target: { value: "luke" } });
     fireEvent.click(button);
 
@@ -30,6 +34,9 @@ describe("Dependencies test", () => {
 });
 
 function registerDependencies(ngModule: IModule) {
+  SpongebobModule.register(ngModule);
+  // StarWarsModule.register(ngModule);
+
   ngModule.service(
     "StarWarsService",
     class MockSWS {

@@ -1,8 +1,5 @@
 module.exports = {
   moduleFileExtensions: ["ts", "js", "tsx"],
-  // moduleNameMapper: {
-  //     "^.+\\.(styl)$": "<rootDir>/test-utils/empty-module.ts"
-  // },
   transform: {
     "\\.(jade)$": "./test-utils/transform-jade.js",
     "\\.(js)$": "babel-jest",

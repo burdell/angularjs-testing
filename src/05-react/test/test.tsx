@@ -1,22 +1,26 @@
 import React from "react";
-import { render, fireEvent, wait } from "./renderer";
-import { render as rtlRender } from "react-testing-library";
+// import { render, fireEvent, wait } from "./renderer";
+import { render as rtlRender, fireEvent } from "react-testing-library";
 
 import { reactModule, stateOptions } from "../index";
 import { ReactComponent } from "../react-component";
+import * as SpongebobModule from "../../04-dependencies/Spongebob";
 
 const { controller, template } = stateOptions;
 
 describe("Props test", () => {
-  it("renders just a controller & template", () => {
-    const { getByText, getByLabelText } = render({
-      component: {
-        controller,
-        template
-      },
-      modules: [reactModule]
-    });
-    // const { getByLabelText, getByText } = rtlRender(<ReactComponent />);
+  it("doesn't test implementation details", () => {
+    // const { getByText, getByLabelText } = render({
+    //   component: {
+    //     controller,
+    //     template
+    //   },
+    //   registerDependencies: ngModule => {
+    //     SpongebobModule.register(ngModule);
+    //   },
+    //   modules: [reactModule]
+    // });
+    const { getByLabelText, getByText } = rtlRender(<ReactComponent />);
 
     const firstName = getByLabelText("First Name");
     const lastName = getByLabelText("Last Name");

@@ -1,5 +1,5 @@
 import { IComponentOptions } from "angular";
-import { SBService } from "../03-dependencies/Spongebob";
+import { SBService } from "../04-dependencies/Spongebob";
 
 const template = require("./tmpl.jade");
 

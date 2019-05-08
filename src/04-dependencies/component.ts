@@ -1,12 +1,12 @@
 import { IComponentOptions, IScope } from "angular";
 
-import { StarWarsService as SWService } from "./service";
+import { StarWarsService as SWService } from "./StarWars/service";
 
 const template = require("./tmpl.jade");
 
 export const RenderWithDependencies: IComponentOptions = {
   template,
-  controller: class BasicTestCtrl {
+  controller: class Ctrl {
     private swService: SWService;
     private starWarsPeople: string[];
     private searchTerm: string = "";
